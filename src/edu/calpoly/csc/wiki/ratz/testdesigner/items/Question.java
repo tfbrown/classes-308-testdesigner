@@ -1,15 +1,15 @@
 package edu.calpoly.csc.wiki.ratz.testdesigner.items;
 
 /**
- *  Class for Question types.
- *
+ * Class for Question types.
+ * 
  * @author jrabaino
  */
-public abstract class Question implements Item{
+public abstract class Question implements Item {
    /** The intoductory text to a question. */
    private String question;
    /** The point value of a question. */
-   private ;
+   private int weight;
    /** The user defined level for a question. */
    private String level;
    /** The user defined category for a question. */
@@ -17,58 +17,73 @@ public abstract class Question implements Item{
 
    /**
     * Gets the question text for the question.
+    * 
     * @return The question text.
     */
-   public String getQuestion(){
+   public String getQuestion() {
       return question;
    }
+
    /**
     * Sets the question text for a question.
+    * 
     * @var newQuestion The new text to assign.
     */
-   public void setquestion(String newquestion){
+   public void setquestion(String newQuestion) {
       question = newQuestion;
    }
+
    /**
     * Gets the weight for a question.
+    * 
     * @return The weight.
     */
-   public int getWeight(){
+   public int getWeight() {
       return weight;
    }
+
    /**
     * Sets the weight for a question.
+    * 
     * @var newWeight The weight to assign.
     */
-   public void setWeight(int newWeight){
+   public void setWeight(int newWeight) {
       weight = newWeight;
    }
+
    /**
     * Gets the level for a question.
+    * 
     * @return The level.
     */
-   public String getLevel(){
+   public String getLevel() {
       return level;
    }
+
    /**
     * Sets the level for a question.
+    * 
     * @var newLevel The level to assign.
     */
-   public void setLevel(String newLevel){
+   public void setLevel(String newLevel) {
       level = newLevel;
    }
+
    /**
     * Gets the category for a question.
+    * 
     * @return The category.
     */
-   public String getCategory(){
+   public String getCategory() {
       return category;
    }
+
    /**
     * Sets the category for a question.
+    * 
     * @var newCategory The new category to assign.
     */
-   public void setCategory(int newCategory){
-      category = newCategroy;
+   public void setCategory(String newCategory) {
+      category = newCategory;
    }
 }
