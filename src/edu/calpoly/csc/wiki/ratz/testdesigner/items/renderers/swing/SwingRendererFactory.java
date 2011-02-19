@@ -1,12 +1,12 @@
 package edu.calpoly.csc.wiki.ratz.testdesigner.items.renderers.swing;
 
-
 import edu.calpoly.csc.wiki.ratz.testdesigner.items.ItemType;
 import edu.calpoly.csc.wiki.ratz.testdesigner.items.renderers.AbstractRendererFactory;
 import edu.calpoly.csc.wiki.ratz.testdesigner.items.renderers.Renderer;
 
 /**
  * Creates Renderers for drawing to a Swing form.
+ * 
  * @see edu.calpoly.csc.wiki.ratz.testdesigner.items.renderers.RendererFactory
  * 
  * @author jdisanti
