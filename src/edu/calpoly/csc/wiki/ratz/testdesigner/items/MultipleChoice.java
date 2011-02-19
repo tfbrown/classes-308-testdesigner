@@ -12,10 +12,14 @@ public class MultipleChoice extends Question{
     * A container for answers.
     */
    private class Answer(){
+      /** A single answer. */
+      public String answer;
+      /** True if the answer is correct. */
+      public boolean isCorrect;
    }
 
    /** ArrayList of all possible answers. */
-   private ArrayList<String> answers;
+   private ArrayList<Answer> answers;
    /** Index location of correct answer. */
    private int correctAnswer;
 
