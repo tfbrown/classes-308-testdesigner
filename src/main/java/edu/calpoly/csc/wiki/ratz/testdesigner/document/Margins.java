@@ -1,11 +1,15 @@
 package edu.calpoly.csc.wiki.ratz.testdesigner.document;
 
+import java.io.Serializable;
+
 /**
  * Sets the margins for the document.
  * 
  * @author tfbrown
  */
-public class Margins {
+public class Margins implements Serializable {
+   private static final long serialVersionUID = -8961127814097150607L;
+   
    /**
     * Bottom Margin
     */

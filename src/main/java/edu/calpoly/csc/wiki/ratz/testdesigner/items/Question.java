@@ -6,7 +6,9 @@ package edu.calpoly.csc.wiki.ratz.testdesigner.items;
  * @author jrabaino
  */
 public abstract class Question implements Item {
-   /** The intoductory text to a question. */
+   private static final long serialVersionUID = -8646128822584368461L;
+
+   /** The introductory text to a question. */
    private String question;
    /** The point value of a question. */
    private int weight;
@@ -29,7 +31,7 @@ public abstract class Question implements Item {
     * 
     * @var newQuestion The new text to assign.
     */
-   public void setquestion(String newQuestion) {
+   public void setQuestion(String newQuestion) {
       question = newQuestion;
    }
 
