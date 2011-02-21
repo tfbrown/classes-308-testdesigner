@@ -38,7 +38,7 @@ public class DocumentSerializerTest {
       mcItem.setCategory(expectedCategory);
       mcItem.setQuestion(expectedQuestion);
       mcItem.setAnswers(expectedAnswers);
-      doc.getItems().add(mcItem);
+      doc.getItems().put("asdf", mcItem);
       
       ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
       DocumentSerializer.save(doc, outputStream);
@@ -49,7 +49,7 @@ public class DocumentSerializerTest {
       
       Assert.assertEquals(doc.getItems().size(), actual.getItems().size());
       
-      MultipleChoiceItem actualMcItem = (MultipleChoiceItem) actual.getItems().get(0);
+      MultipleChoiceItem actualMcItem = (MultipleChoiceItem) actual.getItems().get("asdf");
       Assert.assertEquals(expectedWeight, actualMcItem.getWeight());
       Assert.assertEquals(expectedLevel, actualMcItem.getLevel());
       Assert.assertEquals(expectedCategory, actualMcItem.getCategory());

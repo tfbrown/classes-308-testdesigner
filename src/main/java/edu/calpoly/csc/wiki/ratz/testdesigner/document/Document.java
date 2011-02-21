@@ -1,8 +1,7 @@
 package edu.calpoly.csc.wiki.ratz.testdesigner.document;
 
 import java.io.Serializable;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.LinkedHashMap;
 
 import edu.calpoly.csc.wiki.ratz.testdesigner.items.Item;
 
@@ -14,14 +13,14 @@ import edu.calpoly.csc.wiki.ratz.testdesigner.items.Item;
 public class Document implements Serializable {
    private static final long serialVersionUID = -8726596310681248306L;
 
-   /** All of the items on the test. */
-   private List<Item> items = new LinkedList<Item>();
+   /** All of the items on the test mapped by UUID. */
+   private LinkedHashMap<String, Item> items = new LinkedHashMap<String, Item>();
 
    /** The margins of test page. */
    private Margins margins = new Margins();
 
    /** Returns the items on the document. */
-   public List<Item> getItems() {
+   public LinkedHashMap<String, Item> getItems() {
       return items;
    }
 
