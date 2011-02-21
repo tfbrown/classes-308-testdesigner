@@ -6,4 +6,4 @@ cd $SCRIPT_PATH
 rm -rf doc/
 mkdir doc
 cd doc
-javadoc -sourcepath ../src/ -subpackages edu.calpoly.csc.wiki.ratz
+javadoc -sourcepath ../src/main/java/ -subpackages edu.calpoly.csc.wiki.ratz
