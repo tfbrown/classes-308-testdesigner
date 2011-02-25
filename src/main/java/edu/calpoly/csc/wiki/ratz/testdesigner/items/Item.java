@@ -29,6 +29,11 @@ public abstract class Item implements Serializable, Cloneable {
     */
    public abstract ItemType getType();
    
+   /**
+    * Returns whether or not the item is numbered.
+    */
+   public abstract boolean isNumbered();
+   
    @Override
    public boolean equals(Object obj) {
       if (obj instanceof Item) {

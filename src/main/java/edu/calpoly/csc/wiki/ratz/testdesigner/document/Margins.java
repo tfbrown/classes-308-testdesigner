@@ -3,35 +3,29 @@ package edu.calpoly.csc.wiki.ratz.testdesigner.document;
 import java.io.Serializable;
 
 /**
- * Sets the margins for the document.
+ * Container class for the document margins.
  * 
  * @author tfbrown
  */
 public class Margins implements Serializable {
    private static final long serialVersionUID = -8961127814097150607L;
-   
-   /**
-    * Bottom Margin
-    */
+
+   private static final float DEFAULT_MARGIN_SIZE = 1.f;
+
+   /** Bottom margin in inches. */
    float bottom;
-   /**
-    * Top Margin
-    */
+   /** Top margin in inches. */
    float top;
-   /**
-    * Left Margin
-    */
+   /** Left margin in inches. */
    float left;
-   /**
-    * Right Margin
-    */
+   /** Right margin in inches. */
    float right;
 
    /**
     * Default Constructor class.
     */
    public Margins() {
-
+      bottom = top = left = right = DEFAULT_MARGIN_SIZE;
    }
 
    /**
@@ -43,7 +37,10 @@ public class Margins implements Serializable {
     * @param right
     */
    public Margins(float bottom, float top, float left, float right) {
-
+      this.bottom = bottom;
+      this.top = top;
+      this.left = left;
+      this.right = right;
    }
 
    /**
