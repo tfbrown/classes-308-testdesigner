@@ -32,13 +32,15 @@ public class DocumentSerializerTest {
       expectedAnswers.add(new Answer("three", false));
       
       Document doc = new Document();
+      DocumentController controller = new DocumentController(doc);
+      
       MultipleChoiceItem mcItem = new MultipleChoiceItem();
       mcItem.setWeight(expectedWeight);
       mcItem.setLevel(expectedLevel);
       mcItem.setCategory(expectedCategory);
       mcItem.setQuestion(expectedQuestion);
       mcItem.setAnswers(expectedAnswers);
-      doc.getItems().put("asdf", mcItem);
+      final String expectedUUID = controller.addItem(mcItem);
       
       ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
       DocumentSerializer.save(doc, outputStream);
@@ -49,7 +51,8 @@ public class DocumentSerializerTest {
       
       Assert.assertEquals(doc.getItems().size(), actual.getItems().size());
       
-      MultipleChoiceItem actualMcItem = (MultipleChoiceItem) actual.getItems().get("asdf");
+      MultipleChoiceItem actualMcItem = (MultipleChoiceItem) actual.getItems().get(0);
+      Assert.assertEquals(expectedUUID, actualMcItem.getUUID());
       Assert.assertEquals(expectedWeight, actualMcItem.getWeight());
       Assert.assertEquals(expectedLevel, actualMcItem.getLevel());
       Assert.assertEquals(expectedCategory, actualMcItem.getCategory());

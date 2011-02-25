@@ -5,7 +5,7 @@ package edu.calpoly.csc.wiki.ratz.testdesigner.items;
  * 
  * @author jrabaino
  */
-public abstract class Question implements Item {
+public abstract class Question extends Item {
    private static final long serialVersionUID = -8646128822584368461L;
 
    /** The introductory text to a question. */
