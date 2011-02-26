@@ -69,6 +69,16 @@ public class PageSettings {
    public int getPageHeightPixels() {
       return (int) (dpi * pageHeight);
    }
+   
+   public int getItemAreaWidthPixels() {
+      return getPageWidthPixels()
+            - (int) (dpi * margins.getLeft() + dpi * margins.getRight());
+   }
+   
+   public int getItemAreaHeightPixels() {
+      return getPageHeightPixels()
+            - (int) (dpi * margins.getTop() + dpi * margins.getBottom());
+   }
 
    public String getHeader() {
       return header;

@@ -1,6 +1,6 @@
 package edu.calpoly.csc.wiki.ratz.testdesigner.items.renderers;
 
-import edu.calpoly.csc.wiki.ratz.testdesigner.items.ItemType;
+import edu.calpoly.csc.wiki.ratz.testdesigner.items.Item;
 
 /**
  * A singleton class that creates Renderers for Items. Set the factory to the
@@ -19,28 +19,27 @@ public class RendererFactory {
    /**
     * Returns a Renderer that can draw the Item for the Document Sheet.
     * 
-    * @param type
-    *           The type of Item the Renderer needs to be able to draw.
+    * @param item
+    *           The item that the Renderer needs to be able to draw.
     * @param showAnswers
     *           Whether or not the Renderer should draw answers.
-    * @return A Renderer that can draw the given ItemType.
+    * @return A Renderer that can draw the given item.
     */
-   public static Renderer getDocumentRenderer(ItemType type, boolean showAnswers) {
-      return factory.getDocumentRenderer(type, showAnswers);
+   public static Renderer getDocumentRenderer(Item item, boolean showAnswers) {
+      return factory.getDocumentRenderer(item, showAnswers);
    }
 
    /**
     * Returns a Renderer that can draw the Item for the Answer Sheet.
     * 
-    * @param type
-    *           The type of Item the Renderer needs to be able to draw.
+    * @param item
+    *           The item that the Renderer needs to be able to draw.
     * @param showAnswers
     *           Whether or not the Renderer should draw answers.
     * @return A Renderer that can draw the given ItemType.
     */
-   public static Renderer getAnswerSheetRenderer(ItemType type,
-         boolean showAnswers) {
-      return factory.getAnswerSheetRenderer(type, showAnswers);
+   public static Renderer getAnswerSheetRenderer(Item item, boolean showAnswers) {
+      return factory.getAnswerSheetRenderer(item, showAnswers);
    }
 
    /**

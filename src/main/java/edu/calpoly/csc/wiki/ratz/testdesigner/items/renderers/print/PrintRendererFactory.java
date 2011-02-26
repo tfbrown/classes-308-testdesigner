@@ -1,6 +1,6 @@
 package edu.calpoly.csc.wiki.ratz.testdesigner.items.renderers.print;
 
-import edu.calpoly.csc.wiki.ratz.testdesigner.items.ItemType;
+import edu.calpoly.csc.wiki.ratz.testdesigner.items.Item;
 import edu.calpoly.csc.wiki.ratz.testdesigner.items.renderers.AbstractRendererFactory;
 import edu.calpoly.csc.wiki.ratz.testdesigner.items.renderers.Renderer;
 
@@ -15,7 +15,7 @@ public class PrintRendererFactory implements AbstractRendererFactory {
    /**
     * {@inheritDoc}
     */
-   public Renderer getDocumentRenderer(ItemType type, boolean showAnswers) {
+   public Renderer getDocumentRenderer(Item type, boolean showAnswers) {
       // TODO Auto-generated method stub
       return null;
    }
@@ -23,7 +23,7 @@ public class PrintRendererFactory implements AbstractRendererFactory {
    /**
     * {@inheritDoc}
     */
-   public Renderer getAnswerSheetRenderer(ItemType type, boolean showAnswers) {
+   public Renderer getAnswerSheetRenderer(Item type, boolean showAnswers) {
       // TODO Auto-generated method stub
       return null;
    }

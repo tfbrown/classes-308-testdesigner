@@ -1,6 +1,5 @@
 package edu.calpoly.csc.wiki.ratz.testdesigner.items.renderers;
 
-import edu.calpoly.csc.wiki.ratz.testdesigner.items.Item;
 
 /**
  * Interface that can render an item.
@@ -14,5 +13,13 @@ public interface Renderer {
     * @param item
     *           The item to be rendered. Must not be null.
     */
-   void render(Item item);
+   void render();
+
+   /**
+    * Calculates and returns the height of the given item in inches.
+    * 
+    * @param item
+    *           The item for the calculation to be performed on.
+    */
+   double calculateHeight();
 }
