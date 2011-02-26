@@ -13,13 +13,13 @@ public class Margins implements Serializable {
    private static final float DEFAULT_MARGIN_SIZE = 1.f;
 
    /** Bottom margin in inches. */
-   float bottom;
+   double bottom;
    /** Top margin in inches. */
-   float top;
+   double top;
    /** Left margin in inches. */
-   float left;
+   double left;
    /** Right margin in inches. */
-   float right;
+   double right;
 
    /**
     * Default Constructor class.
@@ -36,80 +36,50 @@ public class Margins implements Serializable {
     * @param left
     * @param right
     */
-   public Margins(float bottom, float top, float left, float right) {
+   public Margins(double bottom, double top, double left, double right) {
       this.bottom = bottom;
       this.top = top;
       this.left = left;
       this.right = right;
    }
 
-   /**
-    * Sets just the right margin value.
-    * 
-    * @param right
-    */
-   public void setRight(float right) {
+   /** Sets the right margin value in inches. */
+   public void setRight(double right) {
+      this.right = right;
    }
 
-   /**
-    * Sets just the left margin value.
-    * 
-    * @param left
-    */
-   public void setLeft(float left) {
+   /** Sets the left margin value in inches. */
+   public void setLeft(double left) {
+      this.left = left;
    }
 
-   /**
-    * Sets the top margin, takes into account possible presence of header.
-    * 
-    * @param top
-    * @param header
-    */
-   public void setTop(float top, boolean header) {
+   /** Sets the top margin in inches. */
+   public void setTop(double top) {
+      this.top = top;
    }
 
-   /**
-    * Sets the bottom margin, takes into account possible presence of footer.
-    * 
-    * @param bottom
-    * @param header
-    */
-   public void setBottom(float bottom, boolean header) {
+   /** Sets the bottom margin in inches. */
+   public void setBottom(double bottom) {
+      this.bottom = bottom;
    }
 
-   /**
-    * Gets the right margin.
-    * 
-    * @return The right margin value.
-    */
-   public float getRight() {
+   /** Gets the right margin in inches. */
+   public double getRight() {
       return right;
    }
 
-   /**
-    * Gets the left margin.
-    * 
-    * @return The left margin value.
-    */
-   public float getLeft() {
+   /** Gets the left margin in inches. */
+   public double getLeft() {
       return left;
    }
 
-   /**
-    * Gets the top margin.
-    * 
-    * @return The top margin value.
-    */
-   public float getTop() {
+   /** Gets the top margin in inches. */
+   public double getTop() {
       return top;
    }
 
-   /**
-    * Gets the bottom margin.
-    * 
-    * @return The bottom margin value.
-    */
-   public float getBottom() {
+   /** Gets the bottom margin in inches. */
+   public double getBottom() {
       return bottom;
    }
 }

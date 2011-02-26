@@ -48,7 +48,7 @@ public class SwingMultipleChoiceRenderer implements Renderer {
       mainBlock.addChild(answerBlock);
 
       buildAnswerSection(answerBlock, pageSettings, item.getAnswers(),
-            pageSettings.getQuestionWidth() - numberWidth);
+            pageSettings.getQuestionWidth() - 2 * numberWidth);
    }
 
    private void buildAnswerSection(Block answerBlock,

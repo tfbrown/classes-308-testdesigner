@@ -2,13 +2,20 @@ package edu.calpoly.csc.wiki.ratz.testdesigner.document;
 
 import java.awt.print.PrinterException;
 import java.awt.print.PrinterJob;
+import java.io.File;
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
+import org.codehaus.jackson.JsonParser.Feature;
+import org.codehaus.jackson.map.ObjectMapper;
+
 import edu.calpoly.csc.wiki.ratz.testdesigner.items.Item;
+import edu.calpoly.csc.wiki.ratz.testdesigner.items.MultipleChoiceItem;
+import edu.calpoly.csc.wiki.ratz.testdesigner.items.MultipleChoiceItem.Answer;
 import edu.calpoly.csc.wiki.ratz.testdesigner.items.Question;
 
 /**
@@ -172,6 +179,53 @@ public class DocumentController {
    }
 
    /**
+    * Loads the document from a JSON demo file. This method is temporary and
+    * should be removed from the final product.
+    * 
+    * @param fileName
+    *           The file name to load from.
+    */
+   @SuppressWarnings("unchecked")
+   public void loadFromJSON(String fileName) throws IOException {
+      document = new Document();
+      ObjectMapper mapper = new ObjectMapper();
+      mapper.configure(Feature.ALLOW_COMMENTS, true);
+      mapper.configure(Feature.ALLOW_SINGLE_QUOTES, true);
+      Map<String, Object> data = (Map<String, Object>) mapper
+            .readValue(new File(fileName), Map.class);
+
+      Map<String, Object> margins = (Map<String, Object>) data.get("margins");
+      if (margins != null) {
+         document.getMargins().setTop((Double) margins.get("top"));
+         document.getMargins().setLeft((Double) margins.get("left"));
+         document.getMargins().setRight((Double) margins.get("right"));
+         document.getMargins().setBottom((Double) margins.get("bottom"));
+      }
+
+      List<Map<String, Object>> questions = (List<Map<String, Object>>) data
+            .get("questions");
+      if (questions != null) {
+         for (Map<String, Object> question : questions) {
+            MultipleChoiceItem item = new MultipleChoiceItem();
+            item.setQuestion((String) question.get("question"));
+            item.setWeight((Integer) question.get("weight"));
+
+            List<Map<String, Object>> answers = (List<Map<String, Object>>) question
+                  .get("answers");
+            if (answers != null) {
+               for (Map<String, Object> answerMap : answers) {
+                  item.getAnswers().add(
+                        new Answer((String) answerMap.get("text"),
+                              (Boolean) answerMap.get("correct")));
+               }
+            }
+            
+            addItem(item);
+         }
+      }
+   }
+
+   /**
     * Randomizes the order of questions in the sections.
     * 
     * @param randomizeAnswers
@@ -210,7 +264,7 @@ public class DocumentController {
             return idx;
       return null;
    }
-   
+
    private void renumberItems() {
       int num = 1;
       for (Item item : document.getItems()) {

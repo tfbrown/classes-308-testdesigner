@@ -1,0 +1,112 @@
+{
+   "margins" : {
+      "top" : 1.0,
+      "left" : 1.0,
+      "right" : 1.0,
+      "bottom" : 1.0
+   },
+
+   // Test questions taken from http://www.bestsamplequestions.com/driving-test-sample-questions/driving-test-sample-questions.html
+   "questions" : [
+      {
+         "question" : "Where should you position your hands on the steering wheel?",
+         "weight" : 1,
+         "answers" : [
+            { "text" : "Left hand at 11 o'clock and right hand at 1 o'clock.", "correct" : false },
+            { "text" : "Left hand at 9 o'clock and right hand at 3 o'clock.", "correct" : false },
+            { "text" : "Left hand at 10 o'clock and right hand at 2 o'clock.", "correct" : false },
+            { "text" : "B. and C. are both correct.", "correct" : true }
+         ]
+      },
+      {
+         "question" : "As you are driving, you should:",
+         "weight" : 2,
+         "answers" : [
+            { "text" : "Keep to the right-hand side of your lane.", "correct" : false },
+            { "text" : "Keep to the left-hand side of the lane.", "correct" : false },
+            { "text" : "Keep to the center of the lane.", "correct" : false },
+            { "text" : "It depends on which lane you are in and the hazards that are around you.", "correct" : true }
+         ]
+      },
+      {
+         "question" : "When can you make a left turn at a red light?",
+         "weight" : 1,
+         "answers" : [
+            { "text" : "Never.", "correct" : false },
+            { "text" : "When turning from a one-way street onto another one-way street.", "correct" : true },
+            { "text" : "When turning from a two-way street onto a one-way street.", "correct" : false },
+            { "text" : "B. and C. are correct.", "correct" : false }
+         ]
+      },
+      {
+         "question" : "When changing lanes you should:",
+         "weight" : 1,
+         "answers" : [
+            { "text" : "Signal and then proceed.", "correct" : false },
+            { "text" : "Check your mirrors and your blind spot and then proceed.", "correct" : false },
+            { "text" : "Check your mirrors, signal, and blind spot; then proceed.", "correct" : true },
+            { "text" : "Check your mirrors and signal before proceeding.", "correct" : false }
+         ]
+      },
+      {
+         "question" : "A two-way left turn lane in the center of the road means:",
+         "weight" : 1,
+         "answers" : [
+            { "text" : "You can turn left and right from this lane.", "correct" : false },
+            { "text" : "You can pass other cars in this lane.", "correct" : false },
+            { "text" : "Cars traveling in both directions can turn left from this lane.", "correct" : true },
+            { "text" : "You can park in this lane.", "correct" : false }
+         ]
+      },
+      {
+         "question" : "A flashing red light means:",
+         "weight" : 1,
+         "answers" : [
+            { "text" : "Stop and wait for the light to turn green.", "correct" : false },
+            { "text" : "Stop and proceed when it is safe to do so.", "correct" : true },
+            { "text" : "Slow down to check for oncoming traffic and proceed when it is safe.", "correct" : false },
+            { "text" : "The flashing red light simply indicates an uncontrolled intersection.", "correct" : false }
+         ]
+      },
+      {
+         "question" : "A flashing green light means:",
+         "weight" : 1,
+         "answers" : [
+            { "text" : "This is a pedestrian-controlled traffic light.", "correct" : false },
+            { "text" : "You can continue through the intersection as long as it's clear.", "correct" : false },
+            { "text" : "This light simply warns you that you are entering an intersection.", "correct" : false },
+            { "text" : "A. and B. are correct.", "correct" : true }
+         ]
+      },
+      {
+         "question" : "A light with a steady green arrow pointing either left or right means:",
+         "weight" : 1,
+         "answers" : [
+            { "text" : "You may turn in the direction of the arrow if the intersection is clear.", "correct" : true },
+            { "text" : "You must check for oncoming traffic before turning in the direction of the arrow.", "correct" : false },
+            { "text" : "Stop and proceed in the direction of the arrow with caution.", "correct" : false },
+            { "text" : "Drive straight through the intersection.", "correct" : false }
+         ]
+      },
+      {
+         "question" : "A light with a steady red cross above a lane of traffic means:",
+         "weight" : 1,
+         "answers" : [
+            { "text" : "Proceed with caution.", "correct" : false },
+            { "text" : "Begin moving out of this lane and into a lane with a steady green arrow.", "correct" : false },
+            { "text" : "You cannot drive in this lane.", "correct" : true },
+            { "text" : "Bus lane only.", "correct" : false }
+         ]
+      },
+      {
+         "question" : "A large diamond painted on the road in a particular lane means:",
+         "weight" : 1,
+         "answers" : [
+            { "text" : "Bus lane only.", "correct" : false },
+            { "text" : "You cannot drive in this lane.", "correct" : false },
+            { "text" : "Reserved for buses and High Occupancy Vehicles (HOVs).", "correct" : true },
+            { "text" : "Crosswalk.", "correct" : false }
+         ]
+      }
+   ]
+}

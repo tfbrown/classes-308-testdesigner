@@ -1,11 +1,18 @@
 package edu.calpoly.csc.wiki.ratz.testdesigner.gui.document;
 
 import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.print.PrinterException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.WindowConstants;
 
 import edu.calpoly.csc.wiki.ratz.testdesigner.document.DocumentController;
@@ -98,12 +105,6 @@ public class TestDocumentPanel extends JFrame {
 
       initComponents();
 
-      try {
-         controller.print();
-      }
-      catch (PrinterException ex) {
-         ex.printStackTrace();
-      }
    }
 
    public void initComponents() {
@@ -115,5 +116,52 @@ public class TestDocumentPanel extends JFrame {
       panel.refresh(controller.getItems());
       add(panel);
       pack();
+
+      JMenuBar menuBar = new JMenuBar();
+      setJMenuBar(menuBar);
+
+      JMenu fileMenu = new JMenu("File");
+      fileMenu.setMnemonic('F');
+      menuBar.add(fileMenu);
+
+      JMenuItem openMenuItem = new JMenuItem("Open");
+      openMenuItem.addActionListener(new ActionListener() {
+         public void actionPerformed(ActionEvent evt) {
+            JFileChooser fileChooser = new JFileChooser();
+            if (JFileChooser.APPROVE_OPTION == fileChooser
+                  .showOpenDialog(panel)) {
+               try {
+                  controller.loadFromJSON(fileChooser.getSelectedFile()
+                        .getName());
+                  panel.refresh(controller.getItems());
+               }
+               catch (IOException ex) {
+                  ex.printStackTrace();
+               }
+            }
+         }
+      });
+      fileMenu.add(openMenuItem);
+
+      JMenuItem printMenuItem = new JMenuItem("Print");
+      printMenuItem.addActionListener(new ActionListener() {
+         public void actionPerformed(ActionEvent evt) {
+            try {
+               controller.print();
+            }
+            catch (PrinterException ex) {
+               ex.printStackTrace();
+            }
+         }
+      });
+      fileMenu.add(printMenuItem);
+
+      JMenuItem quitMenuItem = new JMenuItem("Quit");
+      quitMenuItem.addActionListener(new ActionListener() {
+         public void actionPerformed(ActionEvent evt) {
+            System.exit(0);
+         }
+      });
+      fileMenu.add(quitMenuItem);
    }
 }

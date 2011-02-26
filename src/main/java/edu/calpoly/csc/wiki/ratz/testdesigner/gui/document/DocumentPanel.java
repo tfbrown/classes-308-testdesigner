@@ -30,7 +30,15 @@ public class DocumentPanel extends JScrollPane {
 
       setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
       setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
-
+      
+      recreatePagePanel();
+   }
+   
+   private void recreatePagePanel() {
+      if (pagePanel != null) {
+         viewport.remove(pagePanel);
+      }
+      
       pagePanel = new JPanel();
       pagePanel.setBackground(Color.DARK_GRAY);
       pagePanel.setLayout(new BoxLayout(pagePanel, BoxLayout.Y_AXIS));
@@ -45,7 +53,7 @@ public class DocumentPanel extends JScrollPane {
     */
    public void refresh(List<Item> items) {
       pages.clear();
-      pagePanel.removeAll();
+      recreatePagePanel();
 
       DocumentPage page = new DocumentPage(pagePanel, pageSettings);
       pages.add(page);
@@ -59,5 +67,8 @@ public class DocumentPanel extends JScrollPane {
 
          page.addItem(component);
       }
+
+      getVerticalScrollBar().setUnitIncrement(
+            getVerticalScrollBar().getMaximum() / (2 * pages.size()));
    }
 }
