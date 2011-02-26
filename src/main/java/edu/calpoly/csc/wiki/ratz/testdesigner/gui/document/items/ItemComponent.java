@@ -30,7 +30,7 @@ public class ItemComponent extends JPanel {
    private BufferedImage bufferedImage;
    private Dimension size;
 
-   public ItemComponent(PageSettings pageSettings, Item item, int number) {
+   public ItemComponent(PageSettings pageSettings, Item item) {
       bufferedImage = new BufferedImage(pageSettings.getItemAreaWidthPixels(),
             pageSettings.getItemAreaHeightPixels(), BufferedImage.TYPE_INT_RGB);
       Graphics2D graphics = (Graphics2D) bufferedImage.getGraphics();
@@ -41,7 +41,7 @@ public class ItemComponent extends JPanel {
             bufferedImage.getHeight());
 
       renderer = new SwingRendererFactory(pageSettings, graphics)
-            .getDocumentRenderer(item, number, false);
+            .getDocumentRenderer(item, false);
       renderer.render();
 
       size = new Dimension(pageSettings.getItemAreaWidthPixels(),
@@ -62,5 +62,9 @@ public class ItemComponent extends JPanel {
       ((Graphics2D) g).drawImage(bufferedImage, new AffineTransformOp(
             new AffineTransform(), AffineTransformOp.TYPE_NEAREST_NEIGHBOR), 0,
             0);
+   }
+   
+   public BufferedImage getImage() {
+      return bufferedImage;
    }
 }

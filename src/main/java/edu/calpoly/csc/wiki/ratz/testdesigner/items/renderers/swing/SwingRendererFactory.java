@@ -27,12 +27,11 @@ public class SwingRendererFactory implements AbstractRendererFactory {
    /**
     * {@inheritDoc}
     */
-   public Renderer getDocumentRenderer(Item item, int number,
-         boolean showAnswers) {
+   public Renderer getDocumentRenderer(Item item, boolean showAnswers) {
       switch (item.getType()) {
       case MULTIPLE_CHOICE:
          return new SwingMultipleChoiceRenderer((MultipleChoiceItem) item,
-               number, pageSettings, graphics, showAnswers);
+               pageSettings, graphics, showAnswers);
       default:
          assert false;
       }
@@ -42,8 +41,7 @@ public class SwingRendererFactory implements AbstractRendererFactory {
    /**
     * {@inheritDoc}
     */
-   public Renderer getAnswerSheetRenderer(Item item, int number,
-         boolean showAnswers) {
+   public Renderer getAnswerSheetRenderer(Item item, boolean showAnswers) {
       // TODO Auto-generated method stub
       return null;
    }

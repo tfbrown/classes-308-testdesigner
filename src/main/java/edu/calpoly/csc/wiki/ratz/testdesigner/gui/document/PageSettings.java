@@ -14,10 +14,10 @@ public class PageSettings {
    private Margins margins;
 
    /** Page width in inches */
-   private float pageWidth;
+   private double pageWidth;
 
    /** Page height in inches */
-   private float pageHeight;
+   private double pageHeight;
 
    private String header;
    private String footer;
@@ -51,11 +51,11 @@ public class PageSettings {
       this.margins = margins;
    }
 
-   public void setPageWidth(float pageWidth) {
+   public void setPageWidth(double pageWidth) {
       this.pageWidth = pageWidth;
    }
 
-   public float getPageWidth() {
+   public double getPageWidth() {
       return pageWidth;
    }
 
@@ -63,11 +63,11 @@ public class PageSettings {
       return (int) (dpi * pageWidth);
    }
 
-   public void setPageHeight(float pageHeight) {
+   public void setPageHeight(double pageHeight) {
       this.pageHeight = pageHeight;
    }
 
-   public float getPageHeight() {
+   public double getPageHeight() {
       return pageHeight;
    }
 
@@ -101,7 +101,7 @@ public class PageSettings {
       this.footer = footer;
    }
 
-   public float getQuestionWidth() {
+   public double getQuestionWidth() {
       return pageWidth - (margins.getLeft() + margins.getRight());
    }
 

@@ -14,12 +14,6 @@ import net.miginfocom.swing.MigLayout;
 import edu.calpoly.csc.wiki.ratz.testdesigner.document.Margins;
 import edu.calpoly.csc.wiki.ratz.testdesigner.gui.document.items.ItemComponent;
 
-/**
- * A Swing component that displays a piece of paper with ItemComponents rendered
- * on it.
- * 
- * @author jdisanti
- */
 public class DocumentPage extends JPanel {
    private static final long serialVersionUID = -2347923520957683006L;
 
@@ -61,6 +55,10 @@ public class DocumentPage extends JPanel {
    public void addItem(ItemComponent component) {
       components.add(component);
       viewArea.add(component, "wrap");
+   }
+   
+   public List<ItemComponent> getItemComponents() {
+      return components;
    }
 
    private void initComponents() {

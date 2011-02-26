@@ -20,22 +20,29 @@ public class Document implements Serializable {
    /** The margins of test page. */
    private Margins margins = new Margins();
 
+   /** Width of the paper in inches. */
+   private double pageWidth = 8.5;
+
+   /** Height of the paper in inches. */
+   private double pageHeight = 11.0;
+
    /** Returns the items on the document. */
    public List<Item> getItems() {
       return items;
    }
 
-   /**
-    * Returns the items on the document.
-    * 
-    * @param header
-    *           Whether or not to include the header in the margin calculation.
-    * @param footer
-    *           Whether or not to include the footer in the margin calculation.
-    * @return The margins.
-    */
-   public Margins getMargins(boolean header, boolean footer) {
-      // XXX consider the header/footer
+   /** Returns the margins of the document in inches. */
+   public Margins getMargins() {
       return margins;
+   }
+
+   /** Returns the page width in inches. */
+   public double getPageWidth() {
+      return pageWidth;
+   }
+
+   /** Returns the page height in inches. */
+   public double getPageHeight() {
+      return pageHeight;
    }
 }

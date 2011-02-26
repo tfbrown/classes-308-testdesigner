@@ -22,7 +22,7 @@ public class SwingMultipleChoiceRenderer implements Renderer {
 
    private Block mainBlock;
 
-   public SwingMultipleChoiceRenderer(MultipleChoiceItem item, int number,
+   public SwingMultipleChoiceRenderer(MultipleChoiceItem item,
          PageSettings pageSettings, Graphics2D gr, boolean showAnswers) {
       this.gr = gr;
 
@@ -32,7 +32,7 @@ public class SwingMultipleChoiceRenderer implements Renderer {
       final double numberWidth = 0.3;
 
       TextBlock numberBlock = new TextBlock(pageSettings, gr, String.format(
-            "%d.", number), numberWidth);
+            "%d.", item.getProblemNumber()), numberWidth);
       numberBlock.setPosition(0, 0);
       mainBlock.addChild(numberBlock);
 

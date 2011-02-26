@@ -1,6 +1,7 @@
 package edu.calpoly.csc.wiki.ratz.testdesigner.gui.document;
 
 import java.awt.Dimension;
+import java.awt.print.PrinterException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -96,6 +97,13 @@ public class TestDocumentPanel extends JFrame {
       }
 
       initComponents();
+
+      try {
+         controller.print();
+      }
+      catch (PrinterException ex) {
+         ex.printStackTrace();
+      }
    }
 
    public void initComponents() {

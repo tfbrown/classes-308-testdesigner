@@ -13,7 +13,7 @@ import edu.calpoly.csc.wiki.ratz.testdesigner.gui.document.items.ItemComponent;
 import edu.calpoly.csc.wiki.ratz.testdesigner.items.Item;
 
 /**
- * The Swing test preview component. 
+ * The Swing test preview component.
  * 
  * @author jdisanti
  */
@@ -47,23 +47,17 @@ public class DocumentPanel extends JScrollPane {
       pages.clear();
       pagePanel.removeAll();
 
-      int problemNum = 1;
-
       DocumentPage page = new DocumentPage(pagePanel, pageSettings);
       pages.add(page);
 
       for (Item item : items) {
-         ItemComponent component = new ItemComponent(pageSettings, item,
-               problemNum);
+         ItemComponent component = new ItemComponent(pageSettings, item);
          if (!page.canFit(component)) {
             page = new DocumentPage(pagePanel, pageSettings);
             pages.add(page);
          }
 
          page.addItem(component);
-
-         if (item.isNumbered())
-            problemNum++;
       }
    }
 }

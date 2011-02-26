@@ -16,6 +16,8 @@ public abstract class Question extends Item {
    private String level;
    /** The user defined category for a question. */
    private String category;
+   /** The problem number. */
+   private int problemNumber;
 
    /**
     * Gets the question text for the question.
@@ -87,5 +89,15 @@ public abstract class Question extends Item {
     */
    public void setCategory(String newCategory) {
       category = newCategory;
+   }
+   
+   /** Returns the problem number. */
+   public int getProblemNumber() {
+      return problemNumber;
+   }
+   
+   /** Sets the problem number. */
+   public void setProblemNumber(int problemNumber) {
+      this.problemNumber = problemNumber;
    }
 }

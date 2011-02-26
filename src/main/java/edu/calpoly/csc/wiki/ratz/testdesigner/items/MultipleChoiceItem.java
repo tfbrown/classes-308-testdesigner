@@ -82,12 +82,4 @@ public class MultipleChoiceItem extends Question {
    public ItemType getType() {
       return ItemType.MULTIPLE_CHOICE;
    }
-   
-   /**
-    * {@inheritDoc}
-    */
-   @Override
-   public boolean isNumbered() {
-      return true;
-   }
 }

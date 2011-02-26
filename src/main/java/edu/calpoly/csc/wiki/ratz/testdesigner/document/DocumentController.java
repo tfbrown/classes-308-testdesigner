@@ -1,5 +1,7 @@
 package edu.calpoly.csc.wiki.ratz.testdesigner.document;
 
+import java.awt.print.PrinterException;
+import java.awt.print.PrinterJob;
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -7,6 +9,7 @@ import java.util.List;
 import java.util.UUID;
 
 import edu.calpoly.csc.wiki.ratz.testdesigner.items.Item;
+import edu.calpoly.csc.wiki.ratz.testdesigner.items.Question;
 
 /**
  * DocumentController is used to manipulate a Document.
@@ -44,6 +47,7 @@ public class DocumentController {
       final String uuid = UUID.randomUUID().toString();
       item.setUUID(uuid);
       document.getItems().add(item);
+      renumberItems();
       return uuid;
    }
 
@@ -61,6 +65,7 @@ public class DocumentController {
          item.setUUID(uuid);
          document.getItems().set(index, item);
       }
+      renumberItems();
    }
 
    /**
@@ -78,6 +83,7 @@ public class DocumentController {
             return;
          }
       }
+      renumberItems();
    }
 
    /**
@@ -125,6 +131,7 @@ public class DocumentController {
          items.set(index, items.get(index - 1));
          items.set(index - 1, swp);
       }
+      renumberItems();
    }
 
    /**
@@ -141,6 +148,7 @@ public class DocumentController {
          items.set(index, items.get(index + 1));
          items.set(index + 1, swp);
       }
+      renumberItems();
    }
 
    /**
@@ -171,6 +179,7 @@ public class DocumentController {
     */
    public void randomizeQuestionOrder(boolean randomizeAnswers) {
       // XXX
+      renumberItems();
    }
 
    /**
@@ -181,13 +190,18 @@ public class DocumentController {
     */
    public void randomizeSections(boolean randomizeAnswers) {
       // XXX
+      renumberItems();
    }
 
    /**
-    * Prints the document.
+    * Prints the document. Throws a PrinterException on failure.
     */
-   public void print() {
-      // XXX
+   public void print() throws PrinterException {
+      PrinterJob job = PrinterJob.getPrinterJob();
+      job.setPageable(new DocumentPageable(document));
+      if (job.printDialog()) {
+         job.print();
+      }
    }
 
    private Integer findIndexOfItem(String uuid) {
@@ -195,5 +209,14 @@ public class DocumentController {
          if (document.getItems().get(idx).getUUID().equals(uuid))
             return idx;
       return null;
+   }
+   
+   private void renumberItems() {
+      int num = 1;
+      for (Item item : document.getItems()) {
+         if (item instanceof Question) {
+            ((Question) item).setProblemNumber(num++);
+         }
+      }
    }
 }
