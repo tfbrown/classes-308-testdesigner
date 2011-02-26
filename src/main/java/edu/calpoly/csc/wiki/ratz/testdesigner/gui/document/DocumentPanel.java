@@ -10,9 +10,13 @@ import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
 
 import edu.calpoly.csc.wiki.ratz.testdesigner.gui.document.items.ItemComponent;
-import edu.calpoly.csc.wiki.ratz.testdesigner.gui.document.items.ItemComponentFactory;
 import edu.calpoly.csc.wiki.ratz.testdesigner.items.Item;
 
+/**
+ * The Swing test preview component. 
+ * 
+ * @author jdisanti
+ */
 public class DocumentPanel extends JScrollPane {
    private static final long serialVersionUID = -2317384265778812663L;
 
@@ -23,7 +27,7 @@ public class DocumentPanel extends JScrollPane {
 
    public DocumentPanel() {
       super();
-      
+
       setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
       setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
 
@@ -49,15 +53,15 @@ public class DocumentPanel extends JScrollPane {
       pages.add(page);
 
       for (Item item : items) {
-         ItemComponent<? extends Item> component = ItemComponentFactory
-               .getComponent(pageSettings, item, problemNum);
+         ItemComponent component = new ItemComponent(pageSettings, item,
+               problemNum);
          if (!page.canFit(component)) {
             page = new DocumentPage(pagePanel, pageSettings);
             pages.add(page);
          }
-         
+
          page.addItem(component);
-         
+
          if (item.isNumbered())
             problemNum++;
       }

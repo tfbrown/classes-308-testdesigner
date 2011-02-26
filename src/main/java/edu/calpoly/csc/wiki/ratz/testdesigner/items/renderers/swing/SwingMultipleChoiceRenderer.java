@@ -12,6 +12,11 @@ import edu.calpoly.csc.wiki.ratz.testdesigner.items.renderers.swing.util.Block;
 import edu.calpoly.csc.wiki.ratz.testdesigner.items.renderers.swing.util.TextBlock;
 import edu.calpoly.csc.wiki.ratz.testdesigner.items.renderers.swing.util.Vec2d;
 
+/**
+ * Class that renders multiple choice questions for the Swing preview component.
+ * 
+ * @author jdisanti
+ */
 public class SwingMultipleChoiceRenderer implements Renderer {
    private Graphics2D gr;
 
@@ -24,7 +29,7 @@ public class SwingMultipleChoiceRenderer implements Renderer {
       mainBlock = new Block();
 
       final double padding = 10 / (double) pageSettings.getDpi();
-      final double numberWidth = 0.2;
+      final double numberWidth = 0.3;
 
       TextBlock numberBlock = new TextBlock(pageSettings, gr, String.format(
             "%d.", number), numberWidth);

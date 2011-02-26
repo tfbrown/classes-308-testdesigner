@@ -13,7 +13,6 @@ import javax.swing.border.LineBorder;
 import net.miginfocom.swing.MigLayout;
 import edu.calpoly.csc.wiki.ratz.testdesigner.document.Margins;
 import edu.calpoly.csc.wiki.ratz.testdesigner.gui.document.items.ItemComponent;
-import edu.calpoly.csc.wiki.ratz.testdesigner.items.Item;
 
 /**
  * A Swing component that displays a piece of paper with ItemComponents rendered
@@ -25,7 +24,7 @@ public class DocumentPage extends JPanel {
    private static final long serialVersionUID = -2347923520957683006L;
 
    private PageSettings pageSettings;
-   private List<ItemComponent<? extends Item>> components = new ArrayList<ItemComponent<? extends Item>>();
+   private List<ItemComponent> components = new ArrayList<ItemComponent>();
    private JPanel viewArea;
 
    public DocumentPage(JComponent parent, PageSettings pageSettings) {
@@ -42,16 +41,15 @@ public class DocumentPage extends JPanel {
     *           The item component to test.
     * @return True if it will fit.
     */
-   public boolean canFit(ItemComponent<? extends Item> component) {
+   public boolean canFit(ItemComponent component) {
       int usedHeight = 0;
-      for (ItemComponent<? extends Item> comp : components) {
-         usedHeight += comp.getHeight();
+      for (ItemComponent comp : components) {
+         usedHeight += comp.calculateHeight();
       }
       Margins margins = pageSettings.getMargins();
       int maxHeight = (int) (pageSettings.getPageHeightPixels() - pageSettings
             .getDpi() * (margins.getTop() + margins.getBottom()));
-      // XXX: The getHeight method below is always returning 0... 
-      return usedHeight + component.getHeight() < maxHeight;
+      return usedHeight + component.calculateHeight() < maxHeight;
    }
 
    /**
@@ -60,7 +58,7 @@ public class DocumentPage extends JPanel {
     * @param component
     *           The item to add.
     */
-   public void addItem(ItemComponent<? extends Item> component) {
+   public void addItem(ItemComponent component) {
       components.add(component);
       viewArea.add(component, "wrap");
    }

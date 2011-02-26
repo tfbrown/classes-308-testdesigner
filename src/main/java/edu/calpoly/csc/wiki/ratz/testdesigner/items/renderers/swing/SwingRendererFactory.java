@@ -18,30 +18,32 @@ import edu.calpoly.csc.wiki.ratz.testdesigner.items.renderers.Renderer;
 public class SwingRendererFactory implements AbstractRendererFactory {
    private PageSettings pageSettings;
    private Graphics2D graphics;
-   
+
    public SwingRendererFactory(PageSettings pageSettings, Graphics2D graphics) {
       this.pageSettings = pageSettings;
       this.graphics = graphics;
    }
-   
+
    /**
     * {@inheritDoc}
     */
-   public Renderer getDocumentRenderer(Item item, boolean showAnswers) {
-/*      switch (item.getType()) {
+   public Renderer getDocumentRenderer(Item item, int number,
+         boolean showAnswers) {
+      switch (item.getType()) {
       case MULTIPLE_CHOICE:
          return new SwingMultipleChoiceRenderer((MultipleChoiceItem) item,
-               pageSettings, graphics, showAnswers);
+               number, pageSettings, graphics, showAnswers);
       default:
          assert false;
-      }*/
+      }
       return null;
    }
 
    /**
     * {@inheritDoc}
     */
-   public Renderer getAnswerSheetRenderer(Item item, boolean showAnswers) {
+   public Renderer getAnswerSheetRenderer(Item item, int number,
+         boolean showAnswers) {
       // TODO Auto-generated method stub
       return null;
    }
