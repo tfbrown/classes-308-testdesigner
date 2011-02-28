@@ -67,8 +67,5 @@ public class DocumentPanel extends JScrollPane {
 
          page.addItem(component);
       }
-
-      getVerticalScrollBar().setUnitIncrement(
-            getVerticalScrollBar().getMaximum() / (2 * pages.size()));
    }
 }

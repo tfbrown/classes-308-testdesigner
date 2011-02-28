@@ -132,7 +132,7 @@ public class TestDocumentPanel extends JFrame {
                   .showOpenDialog(panel)) {
                try {
                   controller.loadFromJSON(fileChooser.getSelectedFile()
-                        .getName());
+                        .getAbsolutePath());
                   panel.refresh(controller.getItems());
                }
                catch (IOException ex) {
